@@ -1,0 +1,213 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2865
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 show running-config\
+Building configuration...\
+\
+Current configuration : 3496 bytes\
+!\
+version 15.0\
+no service timestamps log datetime msec\
+no service timestamps debug datetime msec\
+no service password-encryption\
+!\
+hostname Switch\
+!\
+!\
+!\
+clock timezone IST 5 30\
+!\
+!\
+vtp mode transparent\
+!\
+!\
+!\
+spanning-tree mode rapid-pvst\
+spanning-tree extend system-id\
+!\
+vlan 10\
+ name HR\
+!\
+vlan 20\
+ name SALES\
+!\
+vlan 99\
+ name MGMT\
+!\
+vlan 999\
+ name NATIVE-UNUSED\
+!\
+interface FastEthernet0/1\
+ switchport trunk native vlan 999\
+ switchport trunk allowed vlan 10,20,99\
+ switchport mode trunk\
+!\
+interface FastEthernet0/2\
+ switchport access vlan 20\
+ switchport mode access\
+ switchport port-security\
+ switchport port-security mac-address sticky \
+ switchport port-security violation restrict \
+ switchport port-security mac-address sticky 0060.3E39.1A8E\
+ spanning-tree portfast\
+ spanning-tree bpduguard enable\
+!\
+interface FastEthernet0/3\
+ switchport access vlan 10\
+ switchport mode access\
+ switchport port-security\
+ switchport port-security mac-address sticky \
+ switchport port-security violation restrict \
+ switchport port-security mac-address sticky 000A.F31A.D395\
+ spanning-tree portfast\
+ spanning-tree bpduguard enable\
+!\
+interface FastEthernet0/4\
+ switchport access vlan 999\
+ switchport mode access\
+ shutdown\
+!\
+interface FastEthernet0/5\
+ switchport access vlan 999\
+ switchport mode access\
+ shutdown\
+!\
+interface FastEthernet0/6\
+ switchport access vlan 999\
+ switchport mode access\
+ shutdown\
+!\
+interface FastEthernet0/7\
+ switchport access vlan 999\
+ switchport mode access\
+ shutdown\
+!\
+interface FastEthernet0/8\
+ switchport access vlan 999\
+ switchport mode access\
+ shutdown\
+interface FastEthernet0/9\
+ switchport access vlan 999\
+ switchport mode access\
+ shutdown\
+!\
+interface FastEthernet0/10\
+ switchport access vlan 999\
+ switchport mode access\
+ shutdown\
+!\
+interface FastEthernet0/11\
+ switchport access vlan 999\
+ switchport mode access\
+ shutdown\
+!\
+interface FastEthernet0/12\
+ switchport access vlan 999\
+ switchport mode access\
+ shutdown\
+!\
+interface FastEthernet0/13\
+ switchport access vlan 999\
+ switchport mode access\
+ shutdown\
+!\
+interface FastEthernet0/14\
+ switchport access vlan 999\
+ switchport mode access\
+ shutdown\
+!\
+interface FastEthernet0/15\
+ switchport access vlan 999\
+ switchport mode access\
+ shutdown\
+!\
+interface FastEthernet0/16\
+ switchport access vlan 999\
+ switchport mode access\
+ shutdown\
+!\
+interface FastEthernet0/17\
+ switchport access vlan 999\
+switchport mode access\
+ shutdown\
+!\
+interface FastEthernet0/18\
+ switchport access vlan 999\
+ switchport mode access\
+ shutdown\
+!\
+interface FastEthernet0/19\
+ switchport access vlan 999\
+ switchport mode access\
+ shutdown\
+!\
+interface FastEthernet0/20\
+ switchport access vlan 999\
+ switchport mode access\
+ shutdown\
+!\
+interface FastEthernet0/21\
+ switchport access vlan 999\
+ switchport mode access\
+ shutdown\
+!\
+interface FastEthernet0/22\
+ switchport access vlan 999\
+ switchport mode access\
+ shutdown\
+!\
+interface FastEthernet0/23\
+ switchport access vlan 999\
+ switchport mode access\
+ shutdown\
+!\
+interface FastEthernet0/24\
+ switchport access vlan 999\
+ switchport mode access\
+ shutdown\
+!\
+interface GigabitEthernet0/1\
+ switchport access vlan 999\
+ switchport mode access\
+ shutdown\
+!\
+shutdown\
+!\
+interface GigabitEthernet0/2\
+ switchport access vlan 999\
+ switchport mode access\
+ shutdown\
+!\
+interface Vlan1\
+ no ip address\
+ shutdown\
+!\
+interface Vlan99\
+ ip address 192.168.3.98 255.255.255.240\
+!\
+ip default-gateway 192.168.3.97\
+!\
+logging 192.168.1.37\
+!\
+!\
+snmp-server community PROJECT-RO RO\
+!\
+line con 0\
+!\
+line vty 0 4\
+ login\
+line vty 5 15\
+ login\
+!\
+!\
+!\
+ntp server 192.168.1.37\
+!\
+end\
+}
