@@ -57,3 +57,4 @@ Record issues encountered, the steps taken to diagnose them, and the fixes appli
 ## Author
 Aditya Anagunde
 Add project README
+![Enterprise Network Topology](diagrams/enterprise-topology.png)
